@@ -1,0 +1,31 @@
+.container{
+    justify-items: center;
+display: grid;
+}
+
+.teds_photos{
+   
+    display:flex ;
+
+}
+.image{
+    width: 300px;
+height: 200px;
+cursor: pointer;
+}
+.name_price{
+    display: flex;
+    cursor: pointer;
+}
+.teds{
+    width: 300px;
+    display: grid;
+    justify-items: center; 
+    border: 2px solid gray;
+    margin-bottom: 20px;
+    padding: 5px;
+}
+.teds:hover{
+   transform: scale(1.1);
+    
+}
