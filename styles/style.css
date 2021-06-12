@@ -32,3 +32,22 @@ cursor: pointer;
 .colors{
     visibility: hidden;
 }
+
+/*  pAGE PANIER */
+
+#container_panier{
+   
+    display: flex;
+    flex-direction: column;
+    min-width: 80vw;
+
+    justify-content: center;
+    border: 2px solid black;
+}
+.details_captured{
+ display: flex;
+
+ align-items: center;
+ flex-direction: row;
+justify-content: space-around;
+}

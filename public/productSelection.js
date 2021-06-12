@@ -44,7 +44,7 @@ return res.json();
     </div>
 
 
-    <button id="submit_product">Ajouer l'article au panier ${productSelected.price/100}.00€</button>
+    <button id="submit_product" type="submit">Ajouer l'article au panier ${productSelected.price/100}.00€</button>
 
  `
  
@@ -62,6 +62,8 @@ return res.json();
      `;
     
    }
+   //getting the quantity
+   const selectedQty = document.querySelector("#quantity");
    console.log(colorOption);
    //selecting html elements to be shown the colors
  const colorsOptions = document.getElementById("colors");
@@ -74,7 +76,7 @@ return res.json();
 //starting adding products to the cart
  //selecting the btn
 const btnpanier = document.querySelector("#submit_product");
- //console.log(productSelected);  
+ //event listner
  btnpanier.addEventListener("click",(Event)=>{
    Event.preventDefault();
 
@@ -84,17 +86,46 @@ const btnpanier = document.querySelector("#submit_product");
 
    //getting the values of the product
  let  getValuesOfTheProduct ={
+   ProductId:productSelected._id,
   Product:productSelected.name,
-  quantite: 1,
+  quantite: selectedQty.value,
   price:productSelected.price/100,
 color : selectedColor.value,
  }
- console.log(getValuesOfTheProduct);
+ //console.log(getValuesOfTheProduct);
+ // save  the details of products in local storage of and converting the detials (json.parse)to JSON format
+
+let saveProductDetailsOnLocalStorage = JSON.parse(localStorage.getItem("product"));
+
+// function for the popup message
+const popupMessage = () =>{
+  if(window.confirm( `${productSelected.name} color :${selectedColor.value} a bien été ajouté au panier consultez le panier OK ou revenir a le acceuil Cancel `)){
+window.location.href = "panier.html";
+  }else {
+    window.location.href = "index.html";
+  }
+}
+// creating fuction to save selected items in the local storage
+const putProductOnLocalStorage = () =>{
+  // adding selected item values to a table
+  saveProductDetailsOnLocalStorage.push(getValuesOfTheProduct);
+
+  //transform the values to the json format and send to the local storage
+  localStorage.setItem("product",JSON.stringify(saveProductDetailsOnLocalStorage));
+};
+if(saveProductDetailsOnLocalStorage){
+
+  putProductOnLocalStorage();
+  console.log(saveProductDetailsOnLocalStorage);
+  popupMessage();
+}else{
+  saveProductDetailsOnLocalStorage=[];
+  putProductOnLocalStorage();
+  popupMessage();
+}
+
  });
  
 
 })
-
-// 
-
 
