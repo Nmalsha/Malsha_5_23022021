@@ -62,6 +62,7 @@ return res.json();
      `;
     
    }
+ 
    //getting the quantity
    const selectedQty = document.querySelector("#quantity");
    console.log(colorOption);
@@ -70,7 +71,7 @@ return res.json();
  //injjecting the the color options to the html element
  colorsOptions.innerHTML =colorOption;
  
- console.log(colorsOptions);
+
 
  
 //starting adding products to the cart
@@ -105,7 +106,7 @@ window.location.href = "panier.html";
     window.location.href = "index.html";
   }
 }
-// creating fuction to save selected items in the local storage
+// creating function to save selected items in the local storage
 const putProductOnLocalStorage = () =>{
   // adding selected item values to a table
   saveProductDetailsOnLocalStorage.push(getValuesOfTheProduct);
@@ -116,7 +117,7 @@ const putProductOnLocalStorage = () =>{
 if(saveProductDetailsOnLocalStorage){
 
   putProductOnLocalStorage();
-  console.log(saveProductDetailsOnLocalStorage);
+  
   popupMessage();
 }else{
   saveProductDetailsOnLocalStorage=[];
