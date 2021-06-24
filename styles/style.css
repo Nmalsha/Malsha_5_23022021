@@ -67,47 +67,7 @@ cursor: pointer;
 .colors{
     visibility: hidden;
 }
-/* PAGE PRODUCT*/
-.teds_product{
-    width: auto;
-   
-    display: grid;
-    justify-items: center; 
-    border: 2px solid gray;
-    padding-bottom: 10px;
-}
 
-#submit_product{
-cursor: pointer;
-
-}
-#submit_product:hover{
-    transform: scale(1.01);
-    
-}
-
-#container_products{
-    display: flex;
-    border: 2px solid gray;
-    margin-top: 20px;
-    background-color: rgb(243, 233, 241);
-}
-.teds{
-    
-    border: none! important ;
-    width: 50%;
-align-items: center;
-    
-    padding: 5px;
-}
-.teds:hover{
-    transform: scale(1.0);
-     
- }
- .image{
-    width: auto;
-    height: 300px;
- }
 /*  pAGE PANIER */
 
 #container_panier{

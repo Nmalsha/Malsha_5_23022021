@@ -27,22 +27,25 @@ return res.json();
   document.getElementById("container_products").innerHTML = `
   
   <div class="teds teds_product">
-  <img class="image "  src="${productSelected.imageUrl}" id="${productSelected._id}" alt="product image">
+  <img class="image image_product "  src="${productSelected.imageUrl}" id="${productSelected._id}" alt="product image">
   </div>
   <div class="detials_of_products">
   <div class=" product_details">
   <h3 id="name">${productSelected.name}</h3>
   <h3 id="name">${productSelected.price/100}.00€</h3>
   </div>
+  
   <p class="discription">${productSelected.description}</p>
+  <div class="customiz">
   <p>Select color</p>
-  <select id="colors" ></select>
+  <select id="colors" class="width" ></select>
   <p> Select a quantity:</p>
-<select id="quantity"> 
+<select id="quantity" class="width"> 
     <option value="1">1</option>
     <option value="2">2</option>
     <option value="3">3</option>
  </select>  
+ </div>
   <button id="submit_product" type="submit">Ajouer l'article au panier ${productSelected.price/100}.00€</button>
   </div>
  

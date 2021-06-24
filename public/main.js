@@ -15,7 +15,7 @@ return res.json();
 
 <li  class="list-group-item grid-cols-1 grid-cols-2 grid-cols-3">
 <a href="products.html?id=${teds._id}" >
-<figure class="teds">
+<figure class="teds teds_product">
 <img class="image "  src="${teds.imageUrl}" id="${teds._id}" alt="product image">
 <figcaption class="detials_of_products">
 <div class=" product_details">
