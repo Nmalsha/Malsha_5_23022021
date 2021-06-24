@@ -34,22 +34,27 @@ for ( a = 0;a<saveProductDetailsOnLocalStorage.length;a++){
     listOfProductPanier = listOfProductPanier + 
     `
     <div class="details_captured">
-    
-        <div id="objectid"  >${a}</div>
-        <div class="detail_wrap">
-          <div class="name">product name <span class="num_display">${saveProductDetailsOnLocalStorage[a].Product} </span></div>
-         <div class="qty"> Quantité <span class="qty_display">${saveProductDetailsOnLocalStorage[a].quantite} </span></div>
-         
-         <div class="color">color <span class="color_display">${saveProductDetailsOnLocalStorage[a].color}</span></div>
-         <div class="price"> price <span class="price-display">${saveProductDetailsOnLocalStorage[a].price}</span></div>
-         <div class ="total"> Total <span class="Tprice"> ${totalPrice}</span</div>
-         
-         </div>
-         <div> <button class="delete_item">Supprimer product</button></div>
-         
-      </div>
+    <div id="objectid"  >${a}</div>
+    <div class="tdata">
+    <table class="data_table">
+    <tbody class="data">
+     <tr class="tablerow">
+      <td class="name">${saveProductDetailsOnLocalStorage[a].Product}</td>
+      <td class="qty">${saveProductDetailsOnLocalStorage[a].quantite}</td>
+      <td class="color">${saveProductDetailsOnLocalStorage[a].color}</td>
+      <td class="price">${saveProductDetailsOnLocalStorage[a].price}</td>
+      <td class="Tprice">${totalPrice}</td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+  <div> <button class="delete_item">Supprimer product</button></div>
+</div>
 
-     
+
+
+
+         
      `
      
      ;
@@ -121,7 +126,7 @@ const btn_suprimer_panier =`
 <button class= "btn_suprimer_panier" > Vider la panier</button> `
 // inserting element to the html
 
-displayElement.insertAdjacentHTML ("beforeend",btn_suprimer_panier);
+displayElement.insertAdjacentHTML ("afterend",btn_suprimer_panier);
 
 const allItemDeletebtn = document.querySelector(".btn_suprimer_panier");
 //deleting hole cart

@@ -68,24 +68,7 @@ cursor: pointer;
     visibility: hidden;
 }
 
-/*  pAGE PANIER */
 
-#container_panier{
-   
-    display: flex;
-    flex-direction: row;
-    min-width: 80vw;
-
-    justify-content: center;
-    border: 2px solid black;
-}
-.details_captured{
- display: table;
-
-}
-#objectid{
-    visibility: hidden;
-}
 @media (min-width: 768px) and (max-width: 1028px) {
     main{
         max-width: 1028px;

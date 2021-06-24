@@ -1,0 +1,53 @@
+/*  pAGE PANIER */
+nav{
+    background-color: rgb(243, 233, 241);
+    margin-top: 10px;
+}
+.theader{
+    align-content: center;
+display: grid;
+margin-right: 85px;
+}
+#container_panier{
+   
+    width: 100%;
+display: inline-block;
+}
+.container_productinfo{
+    margin-top: 25px;
+}
+.thead_row{
+    width: 1180px;
+display: flex;
+justify-content: space-around;
+}
+.details_captured{
+    display: flex;
+justify-content: space-around;
+margin-top: 10px;
+margin-bottom: 10px;
+}
+#objectid{
+    visibility: hidden;
+}
+
+.data_table{
+    width: 100%;
+}
+.tdata{
+    width: 100%;
+}
+
+.tablerow{
+    display: flex;
+    flex-direction: row;
+   
+    justify-content: space-around; 
+}
+
+.display_total_cost{
+    margin-left: 900px;
+}
+.btn_suprimer_panier{
+    margin-left: 1200px;
+}
