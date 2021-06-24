@@ -26,25 +26,29 @@ return res.json();
 
   document.getElementById("container_products").innerHTML = `
   
-  <div class="product">
-    <div class="product_photo card-img-top">
-   
-    <img class="image"  src="${productSelected.imageUrl}" id="${productSelected._id}">
-   
-    </div>
-    <div class="name_price card-body">
-    <h3>${productSelected.name}</h3>
-    
-</div>
-    <p class="discription">${productSelected.description}</p>
+  <div class="teds teds_product">
+  <img class="image "  src="${productSelected.imageUrl}" id="${productSelected._id}" alt="product image">
+  </div>
+  <div class="detials_of_products">
+  <div class=" product_details">
+  <h3 id="name">${productSelected.name}</h3>
+  <h3 id="name">${productSelected.price/100}.00€</h3>
+  </div>
+  <p class="discription">${productSelected.description}</p>
   <p>Select color</p>
   <select id="colors" ></select>
-   
-   
-    </div>
+  <p> Select a quantity:</p>
+<select id="quantity"> 
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+ </select>  
+  <button id="submit_product" type="submit">Ajouer l'article au panier ${productSelected.price/100}.00€</button>
+  </div>
+ 
 
 
-    <button id="submit_product" type="submit">Ajouer l'article au panier ${productSelected.price/100}.00€</button>
+
 
  `
  
@@ -65,7 +69,12 @@ return res.json();
  
    //getting the quantity
    const selectedQty = document.querySelector("#quantity");
-   console.log(colorOption);
+   /*
+   let qty = selectedQty.value;
+   let totalP = productSelected.price/100;
+   let calcP = qty * totalP;
+   console.log(calcP);
+   */
    //selecting html elements to be shown the colors
  const colorsOptions = document.getElementById("colors");
  //injjecting the the color options to the html element
