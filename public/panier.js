@@ -48,7 +48,7 @@ for ( a = 0;a<saveProductDetailsOnLocalStorage.length;a++){
     </tbody>
     </table>
     </div>
-  <div> <button class="delete_item">Supprimer product</button></div>
+  <div> <button class="delete_item" aria-label="suprimer le produit">Supprimer product</button></div>
 </div>
 
 
@@ -76,10 +76,10 @@ for ( a = 0;a<saveProductDetailsOnLocalStorage.length;a++){
 
 
 
+//-------------------------FIN AFFICHAGE DE PRODUITS DU PANIER---------------
 
 
-
-// --------------------deleting the selected product-------------------------
+// --------------------SUPRIMER LE PRODUIT SELECTIONER-------------------------
 
 
 
@@ -98,17 +98,13 @@ let deleteProduct = document.querySelectorAll(".delete_item");
         // detecting the id of the clicked product
         
         let idToDelete = b;
-       // deleting the element using filter method
+       // deleting the element using splice method
       
       
        saveProductDetailsOnLocalStorage.splice(idToDelete,1);
 
 
 
-//saveProductDetailsOnLocalStorage = saveProductDetailsOnLocalStorage.filter(el => el.idToDelete !==idToDelete  );
-    //  saveProductDetailsOnLocalStorage = saveProductDetailsOnLocalStorage.filter(el => el.idToDelete !== idSelectedToDelete);
-   // console.log( idToDelete);
-//console.log(saveProductDetailsOnLocalStorage);
 //updating the local storage after deleting
 localStorage.setItem("product",JSON.stringify(saveProductDetailsOnLocalStorage));
      alert("ce produit a été suprimé");   
@@ -120,7 +116,9 @@ localStorage.setItem("product",JSON.stringify(saveProductDetailsOnLocalStorage))
     
     
  }
- //------------------- Adding delete button to empty the cart --------------------
+ // --------------------FIN SUPRIMER LE PRODUIT SELECTIONER-------------------------
+
+ //------------------- METTRE UNE BUTTON POUR SUPRIMER TOUTES LES PANIER --------------------
 
 const btn_suprimer_panier =`
 <button class= "btn_suprimer_panier" > Vider la panier</button> `
@@ -139,10 +137,10 @@ allItemDeletebtn.addEventListener("click",(e)=>{
   window.location.href ="panier.html";
 
 })
-//------------------- FIN Adding delete button to empty the cart --------------------
+//------------------- FIN METTRE UNE BUTTON POUR SUPRIMER TOUTES LES PANIER --------------------
 
 
-//--------------------- Calculating total cost of the cart---------------------------
+//--------------------- CALCULER LES PRIX TOTAL DU PANIER---------------------------
 
  let prixTotal =[];
  for (let m=0;m<saveProductDetailsOnLocalStorage.length; m++){
@@ -168,3 +166,88 @@ const displayTotalPriceHtml = `
 <div class= "display_total_cost" > Prix Total du panier :${prixTotalCal}</div> `
 // inject to the page panier after the last child element
 displayElement.insertAdjacentHTML ("beforeend",displayTotalPriceHtml);
+
+//--------------------- FIN CALCULER LES PRIX TOTAL DU PANIER---------------------------
+
+
+//----------------------AFICHAGE DE FORMULAIRE--------------------------------------------
+
+const displayFormHtml = ()=>{
+// selecting the DOM for display the form
+
+const displayForm = document.querySelector("#container_panier");
+const structureForm = `
+<div class="form_container">
+   <form id="form-to-check">
+      <p>
+         <label for="nom" class="label_display" >Nom : <input type="text" name="nom" id="nom" aria-label="ajouter votre nome"/></label><br />
+        
+       </p>
+       <p>
+         <label for="prénom" class="label_display" >Prénom : <input type="text" name="prenom" id="prenom" aria-label="ajouter votre Prénom"/></label><br />
+        
+       </p>
+      <p>
+        <label for="Adresse" class="label_display" >Adresse : <input type="text" name="adresse" id="adresse" aria-label="ajouter votre Adresse" /></label><br />
+       
+      </p>
+      <p>
+        <label for="Email" class="label_display" >Email : <input type="email" name="email" id="email" aria-label="ajouter votre Email" required /></label>
+      </p>
+      <p>
+         <label for="Code postal" class="label_display" >Code postal : <input type="text" name="codepostal"  id="codepostal" aria-label="ajouter votre Code postal" required /></label>
+       </p>
+       <p>
+         <label for="Ville" class="label_display" >Ville : <input type="text" name="ville" id ="ville" aria-label="ajouter votre Ville" required /></label>
+       </p>
+      <p>
+         <button type="submit"  id="submitform-btn" aria-label="cliquez ici pour procéder le paiement">Procéder au paiement</button>
+      </p>
+    </form>
+   
+  </div>
+       
+
+
+`;
+// inject to the page panier after the last child element
+
+displayForm.insertAdjacentHTML("afterend",structureForm);
+
+};
+//-----------------------------------FORMULAIRE --------------------------------
+// display the form
+displayFormHtml();
+// select the button to send the form
+const sendForm = document.querySelector("#submitform-btn");
+// adding event listner
+sendForm.addEventListener("click",(e)=>{
+  e.preventDefault();
+// getting the form values
+
+const formValues={
+  Nom:document.querySelector("#nom").value,
+  Prénom:document.querySelector("#prenom").value,
+  Adresse:document.querySelector("#adresse").value,
+  Email:document.querySelector("#email").value,
+  codepostal:document.querySelector("#codepostal").value,
+  Ville:document.querySelector("#ville").value
+}
+
+// put object "formValues" to the local storage transoforming to the json format using stringify
+localStorage.setItem("formValues", JSON.stringify(formValues));
+
+//put the form data and the product selected details to a object and send in to the server
+
+const detailsToSend= {
+  saveProductDetailsOnLocalStorage,
+  formValues
+}
+
+// sending the object "detailsToSend" to the server
+console.log(detailsToSend);
+})
+
+
+
+

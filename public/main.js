@@ -13,7 +13,7 @@ return res.json();
     return `
   
 
-<li  class="list-group-item grid-cols-1 grid-cols-2 grid-cols-3">
+<li  class="list-group-item grid-cols-1 grid-cols-2 grid-cols-3" aria-label="Produit ${teds.name}">
 <a href="products.html?id=${teds._id}" >
 <figure class="teds teds_product">
 <img class="image "  src="${teds.imageUrl}" id="${teds._id}" alt="product image">

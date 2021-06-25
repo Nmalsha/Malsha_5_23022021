@@ -15,6 +15,7 @@ display: inline-block;
 }
 .container_productinfo{
     margin-top: 25px;
+    border: 2px solid gray;
 }
 .thead_row{
     width: 1180px;
@@ -50,4 +51,49 @@ margin-bottom: 10px;
 }
 .btn_suprimer_panier{
     margin-left: 1200px;
+}
+
+/*FORM STYLING */
+form{
+    background-color: rgb(243, 233, 241);
+
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+#form-to-check{
+    display: grid;
+    justify-content: space-around;
+grid-template-columns: repeat(2,auto);
+}
+.label_display{
+    display: grid; 
+}
+input{
+    width: 300px;
+    box-shadow: rgba(128, 0, 0, 0.4) 0px 0px 4px;
+height: 30px;
+background-color: white;
+border: none;
+margin-top: 10px;
+}
+input:focus{
+  border: 1px solid blue;  
+}
+input:unfocus{
+    border: 1px solid blue;  
+  }
+/* TABLET */
+@media (min-width: 768px) and (max-width: 1028px) {
+    main{
+        max-width: 1028px;
+    }
+   
+}
+
+/* MOBILE*/
+@media (max-width: 768px) {
+    main{
+        max-width: 768px;
+    }
+    
 }
