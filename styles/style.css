@@ -3,6 +3,15 @@ nav{
     background-color: rgb(243, 233, 241);
     margin-top: 10px;
 }
+.logo_box{
+    width: 50%;
+}
+.link_box{
+    width: 50%;
+
+display: grid;
+justify-content: center;
+}
 .container{
     margin-top: 50px;
 

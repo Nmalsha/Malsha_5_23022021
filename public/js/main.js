@@ -1,3 +1,4 @@
+const URL="http://localhost:3000/api/teddies";
 
 fetch("http://localhost:3000/api/teddies")
 .then(function(res) {
@@ -52,11 +53,3 @@ return res.json();
 })
 
 
-
-  //div.innerHTML = 
-  //div.innerHTML = '+productName+';
-  //mainContainer.appendChild(div);
-  
-//}
-
-//});
