@@ -1,5 +1,7 @@
 //getting the local storage data
 
+//const { response } = require("express");
+
 // save  the details of products in local storage of and converting the detials (json.parse)to JSON format
 
 let saveProductDetailsOnLocalStorage = JSON.parse(localStorage.getItem("product"));
@@ -369,28 +371,21 @@ function conrolEmail (){
     }
 
 }
+
+//------------------ FIN form control-------------------------------------------------------------------------------------
+
 //contorl if the nom ,prenom, address, code postal and  email filleds correct
 if(controleNom() && controleprenom() && controlAddress () && controlCodePostal() && controlVille() && conrolEmail()  ){
 // put object "formValues" to the local storage transoforming to the json format using stringify ( if the form filled correctly)
 localStorage.setItem("formValues", JSON.stringify(formValues));
 //console.log(localStorage);
 //window.location.href="confirmation.html";
-}else{
-  
-alert("Veuillez bien remplir le formulaire");
-
-};
-//------------------ FIN form control-------------------------------------------------------------------------------------
-
-
-
 //put the form data and the product selected details to a object
 
 const detailsToSend= {
   saveProductDetailsOnLocalStorage,
   formValues
-}
-
+};
 // ----------------------------SENDING THE OBJECT "detailsToSend" TO THE SERVER----------------------------------------
 const promise1 = fetch("https://restapi.fr/api/test",{
   method:"POST",
@@ -400,33 +395,51 @@ const promise1 = fetch("https://restapi.fr/api/test",{
   },
 
 });
+
 //see the result of the server in the console
-promise1.then(async(reponse)=>{
+promise1.then(async(response)=>{
   try{
    
-    const content = await reponse.json();
+    const content = await response.json();
     
-   
+    console.log(content);
+  if(response.ok){
+console.log(response.ok);
+
+//getting the id of the object("detailsToSend") which is already in the server
+
+var savedObjectId = content._id;
+console.log(savedObjectId);
+
+//And send it to the local storage
+localStorage.setItem("sevedId",savedObjectId);
+
+// redirecting the confirmation page 
+window.location = "confirmation.html";
+   }else{
+
+   }
 
   }catch(e){
-    console.log(e);
+   // console.log("error");
+    //console.log(e);
   }
-})
-// see the real result in the server
-const promise2 = fetch("https://restapi.fr/api/test");
-promise2.then(async(reponse)=>{
-  try{
-    console.log("promise2");
-   console.log(promise2);
-    const serverContent = await reponse.json();
-    console.log("serverContent");
-    console.log(serverContent);
-   
+});
 
-  }catch(e){
-    console.log(e);
-  }
-})
+}else{
+  
+alert("Veuillez bien remplir le formulaire");
+
+};
+
+
+
+
+
+
+
+
+
 });
 
 // ----------------------------FIN SENDING THE OBJECT "detailsToSend" TO THE SERVER----------------------------------------

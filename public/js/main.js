@@ -1,14 +1,14 @@
-const URL="http://localhost:3000/api/teddies";
 
+//getting the products
 fetch("http://localhost:3000/api/teddies")
 .then(function(res) {
 return res.json();
   })
 
 .then(function(data){
-
+  console.log(data);
  
-  // showing image
+  // creating the template to show products on html
   function tedsTemplate(teds){
    
     return `
@@ -44,6 +44,7 @@ return res.json();
    `
    
   }
+  // injecting template to the html DOM
   document.getElementById("app").innerHTML = `
   ${data.map(tedsTemplate).join("") }
  `
