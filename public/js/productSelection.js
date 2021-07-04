@@ -48,7 +48,9 @@ return res.json();
     <option value="5">5</option>
  </select>  
  </div>
+ <div class="btn_wrappe">
   <button id="submit_product" type="submit">Ajouer l'article au panier ${productSelected.price/100}.00€</button>
+  </div>
   </div>
  
 

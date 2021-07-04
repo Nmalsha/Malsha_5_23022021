@@ -125,7 +125,7 @@ localStorage.setItem("product",JSON.stringify(saveProductDetailsOnLocalStorage))
  //------------------- ADDING ONE DELETE BUTTON TO DELETE FULL CART  --------------------
 
 const btn_suprimer_panier =`<div class="vider_panier">
-<button class= "btn_suprimer_panier" > Vider la panier</button> </div>`
+<button class= "btn_suprimer_panier" aria-label="vidé le panier"> Vider la panier</button> </div>`
 // inserting element to the html
 
 displayElement.insertAdjacentHTML ("beforeend",btn_suprimer_panier);

@@ -164,8 +164,53 @@ input:unfocus{
 
 /* MOBILE*/
 @media (max-width: 768px) {
-    main{
-        max-width: 768px;
-    }
     
+        .logo_img{
+            width: 250px;  
+        }
+        .thead_row{
+    
+            font-size: 13px;
+           
+            }
+            th{
+                width: 70px;
+            }
+            .Tprice{
+                visibility: hidden;
+            }
+            .tdata{
+                font-size: 12px;  
+            }
+            .name{
+                width: 70px;
+display: grid;
+            }
+         .qty{
+            width: 70px;
+            display: grid;
+            align-content: center;
+            justify-content: center;
+         }   
+.color{
+    width: 70px;
+}
+.vider_panier{
+    justify-content: center;
+}
+.btn_suprimer_panier{
+    font-size: 15px;
+}
+.display_total_cost{
+    font-size: 17px;
+}
+.label_display{
+    font-size: 16px;
+}
+input{
+    width: auto;
+}
+#submitform-btn{
+    font-size: 17px;
+}
 }

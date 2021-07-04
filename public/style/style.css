@@ -100,10 +100,16 @@ cursor: pointer;
 
 /* MOBILE*/
 @media (max-width: 768px) {
-    main{
-        max-width: 768px;
+    .logo_img{
+        width: 250px;  
     }
     .grid-cols-1{
         grid-template-columns: repeat(1,minmax(0,1fr));
+    }
+    .teds{
+        width: 340px;
+    }
+    .image{
+        width: 320px;
     }
 }
