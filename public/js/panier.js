@@ -45,7 +45,7 @@ for ( a = 0;a<saveProductDetailsOnLocalStorage.length;a++){
       <td class="name">${saveProductDetailsOnLocalStorage[a].Product}</td>
       <td class="qty">${saveProductDetailsOnLocalStorage[a].quantite}</td>
       <td class="color">${saveProductDetailsOnLocalStorage[a].color}</td>
-      <td class="price">${saveProductDetailsOnLocalStorage[a].price}</td>
+      <td class="price">${saveProductDetailsOnLocalStorage[a].price}€</td>
       <td class="Tprice">${totalPrice}</td>
     </tr>
     </tbody>
@@ -124,8 +124,8 @@ localStorage.setItem("product",JSON.stringify(saveProductDetailsOnLocalStorage))
 
  //------------------- ADDING ONE DELETE BUTTON TO DELETE FULL CART  --------------------
 
-const btn_suprimer_panier =`
-<button class= "btn_suprimer_panier" > Vider la panier</button> `
+const btn_suprimer_panier =`<div class="vider_panier">
+<button class= "btn_suprimer_panier" > Vider la panier</button> </div>`
 // inserting element to the html
 
 displayElement.insertAdjacentHTML ("beforeend",btn_suprimer_panier);
@@ -144,7 +144,7 @@ allItemDeletebtn.addEventListener("click",(e)=>{
 //------------------- FIN ADDING ONE DELETE BUTTON TO DELETE FULL CART --------------------
 
 
-//--------------------- CALCULATE THE COST OF THE CART ---------------------------
+//--------------------- CALCULATE THE COST OF THE FULL CART ---------------------------
 
  let prixTotal =[];
  for (let m=0;m<saveProductDetailsOnLocalStorage.length; m++){
@@ -159,19 +159,49 @@ let priceOfProducts =PriceOfProduct*qtyOfSelectedProduct;
 prixTotal.push(priceOfProducts);
 
  }  
+//------------------calculating the price which are in the array PrixTotal--------------------------
 
- //calculating the price which are in the array PrixTotal
-
- const reducer = (accumulator, currentValue) => accumulator + currentValue;
- const prixTotalCal = prixTotal.reduce(reducer,0);
+const reducer = (accumulator, currentValue) => accumulator + currentValue;
+const prixTotalCal = prixTotal.reduce(reducer,0);
 
 //display total cost in html
 const displayTotalPriceHtml = `
-<div class= "display_total_cost" > Prix Total du panier :${prixTotalCal}</div> `
+<div class= "display_total_cost" > Prix Total du panier :${prixTotalCal}€</div> `
 // inject to the page panier after the last child element
 displayElement.insertAdjacentHTML ("beforeend",displayTotalPriceHtml);
 
 //--------------------- FIN CALCULATE THE COST OF THE CART---------------------------
+
+
+//--------------------------DISPLAY TOTAL QTY OF THE ITEMS-------------------------------
+let totalItem= [];
+
+for (let m=0;m<saveProductDetailsOnLocalStorage.length; m++){
+  // getting the qty of products and converting string to number
+  let qtyOfSelectedProduct = parseInt(saveProductDetailsOnLocalStorage[m].quantite);
+  //adding qty to the array totalItem
+  totalItem.push(qtyOfSelectedProduct);
+  //console.log(totalItem);
+}
+ //-----------------calculating the total qty which are in the array totalItem-----------
+
+ const reducerqty = (accumulator, currentValue) => accumulator + currentValue;
+ const totalQty = totalItem.reduce(reducerqty,0);
+ //console.log(totalQty);
+//adding the qty count to the cart bedge
+const displayTotalQtyHtml = `
+<span class="item_count">${totalQty}</span> `
+// inject to the page panier after the last child element
+const displayQty = document.querySelector(".panier");
+const displayQtyIndex = document.querySelector("#panier_index");
+console.log(displayQtyIndex);
+//console.log(displayTotalQtyHtml);
+//displayQty.innerHTML =displayTotalQtyHtml;
+displayQty.insertAdjacentHTML("beforeend",displayTotalQtyHtml);
+
+ //--------------------------FIN DISPLAY TOTAL QTY OF THE ITEMS-------------------------------
+
+ 
 
 
 //----------------------DISPLAY FORM --------------------------------------------
@@ -207,11 +237,11 @@ const structureForm = `
          <label for="Ville" class="label_display" >Ville : <input type="text" name="ville" id ="ville" aria-label="ajouter votre Ville" required /></label>
          <span id="Ville_manque" class="champ_manque"></span>
          </p>
-      <p>
-         <button type="submit"  id="submitform-btn" aria-label="cliquez ici pour procéder le paiement">Procéder au paiement</button>
-      </p>
+      
     </form>
-   
+    <div class="box_checkout">
+    <button type="submit"  id="submitform-btn" aria-label="cliquez ici pour procéder le paiement">Procéder au paiement</button>
+ </div>
   </div>
        
 
@@ -227,6 +257,7 @@ displayForm.insertAdjacentHTML("afterend",structureForm);
 displayFormHtml();
 
 //----------------------FIN DISPLAY FORM --------------------------------------------
+
 // select the button to send the form
 const sendForm = document.querySelector("#submitform-btn");
 // adding event listner
@@ -378,13 +409,17 @@ function conrolEmail (){
 if(controleNom() && controleprenom() && controlAddress () && controlCodePostal() && controlVille() && conrolEmail()  ){
 // put object "formValues" to the local storage transoforming to the json format using stringify ( if the form filled correctly)
 localStorage.setItem("formValues", JSON.stringify(formValues));
+//adding the total price to the local storage
+
+localStorage.setItem("prixTotal",JSON.stringify(prixTotalCal));
 //console.log(localStorage);
 //window.location.href="confirmation.html";
 //put the form data and the product selected details to a object
 
 const detailsToSend= {
   saveProductDetailsOnLocalStorage,
-  formValues
+  formValues,prixTotalCal
+
 };
 // ----------------------------SENDING THE OBJECT "detailsToSend" TO THE SERVER----------------------------------------
 const promise1 = fetch("https://restapi.fr/api/test",{
@@ -402,20 +437,22 @@ promise1.then(async(response)=>{
    
     const content = await response.json();
     
-    console.log(content);
+   // console.log(content);
   if(response.ok){
-console.log(response.ok);
+//console.log(response.ok);
 
 //getting the id of the object("detailsToSend") which is already in the server
 
 var savedObjectId = content._id;
-console.log(savedObjectId);
+//console.log(savedObjectId);
 
 //And send it to the local storage
 localStorage.setItem("sevedId",savedObjectId);
 
 // redirecting the confirmation page 
 window.location = "confirmation.html";
+
+
    }else{
 
    }

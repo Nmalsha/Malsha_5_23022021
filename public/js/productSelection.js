@@ -37,9 +37,9 @@ return res.json();
   
   <p class="discription">${productSelected.description}</p>
   <div class="customiz">
-  <p>Select color</p>
+  <p>Choisir le couleur : </p>
   <select id="colors" class="width" ></select>
-  <p> Select a quantity:</p>
+  <p> Choisir le quentité :</p>
 <select id="quantity" class="width"> 
     <option value="1">1</option>
     <option value="2">2</option>

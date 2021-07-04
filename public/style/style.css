@@ -12,6 +12,12 @@ nav{
 display: grid;
 justify-content: center;
 }
+.cart_size{
+    font-size: 20px;
+}
+.list_margin{
+    margin: 20px;
+}
 .container{
     margin-top: 50px;
 
@@ -42,6 +48,9 @@ ul {
     display: flex;
     justify-content: space-around;
 }
+figure{
+    background-color: rgb(243, 233, 241)
+}
 .teds_photos{
    
     display:flex ;
@@ -49,7 +58,7 @@ ul {
 }
 
 .image{
-    width: 270px;
+    width: 370px;
 height: 200px;
 cursor: pointer;
 }
@@ -63,7 +72,7 @@ cursor: pointer;
     height: 450px;
     display: grid;
     justify-items: center; 
-    border: 2px solid gray;
+    
     margin-bottom: 20px;
     padding: 5px;
 }

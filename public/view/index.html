@@ -17,37 +17,40 @@
     <meta property="twitter:description" content="Orinoco est un site e-commerce à thème">
     <meta property="twitter:image" content="http://orinoco.mathisbarre.com/images/orinoco.png">
 
-<script defer src="https://kit.fontawesome.com/95d302c68f.js" anonymous ="anonymous"></script>
-    <script defer src="public/js/main.js"></script>
-  
+<script defer src="https://kit.fontawesome.com/95d302c68f.js" ></script>
+    <script defer src="../js/main.js"></script>
+    <script defer src="../js/panier.js"></script>
+    
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
     <link rel="shortcut icon" href="#">
-    <link href="./styles/style.css" rel="stylesheet">
+    <link href="../style/style.css" rel="stylesheet">
 
     <title>ORINOCO</title>
 </head>
+<body>
 <main> 
 <header>
      <!-- Header -->
     
 
-<div class="bg-light mx-auto px-4 py-8">
+<div class="bg-light mx-auto  py-8">
    
-       <div class="row"  class="container_header">
+       <div class="row container_header"  >
           <nav class="col navbar navbar-expand navbar-dark">
-            <div>
-              <a href="#">
-                    <img src="images/logo.png" width="300" height="100" alt="logo de la site"> 
+            <div class="logo_box">
+              <a href="index.html">
+                    <img src="../logo/logo.png" width="300" height="100" alt="logo de la site"> 
               </a>
+            </div>
+            <div class="link_box">
               <ul>
-                <li><a class="panier" href="panier.html"><i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                </a></li>
-                <li> <a class="accueil" href="public/">Accueil</a></li>
+                <li><a id="panier_index" href="panier.html"><i class="fa fa-shopping-cart cart_size" aria-hidden="true"></i>
+                 </a></li>
+                
               </ul>
             </div>
-             
             </nav>
           
        </div>
@@ -55,19 +58,21 @@
  </div>
 </header>
  <!-- body de la page -->
- <body>
+ 
  <div class="container">
    <div class="row">
-      <div  id ="app">
-         
-      </div>  
+      <ul  id ="app">
+        
+      </ul>  
     </div>    
  </div>     
        
         
      
 </main>
-        </body>
+       
         <footer>
 
         </footer>
+      </body>
+</html>

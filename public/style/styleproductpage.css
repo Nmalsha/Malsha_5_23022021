@@ -22,6 +22,9 @@ ul {
 display: grid;
 justify-content: center;
 }
+.cart_size{
+    font-size: 20px;
+}
 .teds_product{
    width: 50%;
    height: 50%;
@@ -74,13 +77,21 @@ justify-content: space-around;
 }
 .width{
     width: 150px; 
+    font-size: 15px;
 }
 #submit_product{
-    margin-top: 25px;
-width: 70%;
+    margin-top: 55px;
+width: 98%;
 
+background-color: #c6538a;
+height: 50px;
 display: grid;
 justify-items: center;
+font-size: 1.1rem;
+padding: 10px;
+color: #000066;
+font-weight: bold;
+border-radius: 10px;
 }
    
  
