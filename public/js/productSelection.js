@@ -31,15 +31,15 @@ return res.json();
   </div>
   <div class="detials_of_products">
   <div class=" product_details">
-  <h3 id="name">${productSelected.name}</h3>
-  <h3 id="name">${productSelected.price/100}.00€</h3>
+  <h3 class="name">${productSelected.name}</h3>
+  <h3 class="name">${productSelected.price/100}.00€</h3>
   </div>
   
   <p class="discription">${productSelected.description}</p>
   <div class="customiz">
-  <p>Choisir le couleur : </p>
+  <p class="option_style">Choisir le couleur : </p>
   <select id="colors" class="width" ></select>
-  <p> Choisir le quentité :</p>
+  <p class="option_style"> Choisir le quentité :</p>
 <select id="quantity" class="width"> 
     <option value="1">1</option>
     <option value="2">2</option>

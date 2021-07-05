@@ -40,3 +40,19 @@ font-weight: bold;
 span{
     color: crimson;
 }
+
+@media (max-width: 768px) {
+    
+    .logo_img{
+        width: 250px;  
+    }
+    .link_box{
+        justify-content: end;
+    }
+    #container_confrimation{
+        padding: 20px; 
+    }
+    h3{
+        font-size: 2rem;
+    }
+}
