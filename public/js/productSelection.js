@@ -8,7 +8,7 @@ const clearId = queryString_url_id.slice(4);
 
 //displaying product belogns to the id
 
-fetch("http://localhost:3000/api/teddies")
+fetch(HOST + API.teddies)
 .then(function(res) {
 return res.json();
   })
@@ -60,8 +60,21 @@ return res.json();
  `
  
  
-   //getting available colors
+   //getting available colors/lenses/varnish
 
+const items = Object.keys(productSelected);
+let item = productSelected[items[0]];
+let itemOption =[]
+ for (let i = 0; i< item.length; i++){
+itemOption = itemOption+
+     
+     `
+    
+     <option value = "${item[i]}">${item[i]}</option>
+     `;
+ }
+
+/*
    const colors = productSelected.colors;
    let colorOption = [];
    for (let i=0; i<colors.length;i++){
@@ -74,11 +87,11 @@ return res.json();
      `;
     
    }
-
+*/
    //selecting html elements to be shown the colors
- const colorsOptions = document.getElementById("colors");
+ const itemOptions = document.getElementById("colors");
  //injjecting the the color options to the html element
- colorsOptions.innerHTML =colorOption;
+ itemOptions.innerHTML =itemOption;
  
    //getting the quantity
    const selectedQty = document.querySelector("#quantity");

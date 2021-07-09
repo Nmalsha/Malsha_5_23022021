@@ -9,7 +9,7 @@ console.log(prixTotal);
 //selecting the dom to display
 const displayConfirmation = document.querySelector("#container_confrimation");
 
-const stuectureHtmlConfirmation =  `
+const struectureHtmlConfirmation =  `
 
 <h3>Merci pour votre commande</h3>
   <p class="p_1">Votre Commande   # <span class="num_command"> ${sevedId}</span>   été bien enregistraire</p>
@@ -17,7 +17,7 @@ const stuectureHtmlConfirmation =  `
   <p>A bientot !! </p> 
 `;
 //injection Html
-displayConfirmation.insertAdjacentHTML("afterbegin",stuectureHtmlConfirmation); 
+displayConfirmation.insertAdjacentHTML("afterbegin",struectureHtmlConfirmation); 
 
 //delete all item from the local storage
 //localStorage.clear;

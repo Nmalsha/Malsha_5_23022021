@@ -1,6 +1,7 @@
 
+//console.log(HOST + API.teddies )
 //getting the products
-fetch("http://localhost:3000/api/teddies")
+fetch(HOST + API.teddies)
 .then(function(res) {
 return res.json();
   })
