@@ -193,8 +193,9 @@ const displayTotalQtyHtml = `
 <span class="item_count">${totalQty}</span> `
 // inject to the page panier after the last child element
 const displayQty = document.querySelector(".panier");
-const displayQtyIndex = document.querySelector("#panier_index");
-console.log(displayQtyIndex);
+//const displayQtyIndex = document.querySelector(".panierIndex");
+//console.log(displayQtyIndex);
+console.log(displayQty);
 //console.log(displayTotalQtyHtml);
 //displayQty.innerHTML =displayTotalQtyHtml;
 displayQty.insertAdjacentHTML("beforeend",displayTotalQtyHtml);

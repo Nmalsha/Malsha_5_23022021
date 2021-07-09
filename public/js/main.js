@@ -6,15 +6,16 @@ return res.json();
   })
 
 .then(function(data){
-  console.log(data);
+  //console.log(data);
  
   // creating the template to show products on html
   function tedsTemplate(teds){
-   
+    //console.log(teds);
     return `
   
 
 <li  class=" list_margin list-group-item grid-cols-1 grid-cols-2 grid-cols-3" aria-label="Produit ${teds.name}">
+
 <a href="products.html?id=${teds._id}" >
 <figure class="teds teds_product">
 <img class="image "  src="${teds.imageUrl}" id="${teds._id}" alt="product image">
@@ -44,11 +45,11 @@ return res.json();
    `
    
   }
-  // injecting template to the html DOM
+  // injecting template to the html DOM using data.map
   document.getElementById("app").innerHTML = `
   ${data.map(tedsTemplate).join("") }
  `
- // show item details  
+ 
  
 
 })

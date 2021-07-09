@@ -4,7 +4,7 @@ const queryString_url_id = window.location.search;
 //clearing the id ( id without '?')
 
 const clearId = queryString_url_id.slice(4);
-
+//console.log(clearId);
 
 //displaying product belogns to the id
 
@@ -19,7 +19,7 @@ return res.json();
   // selecting products to display
   
   const productSelected = data.find((element)=>element._id ===clearId);
-   
+  console.log(productSelected);
  
  
 
@@ -67,25 +67,24 @@ return res.json();
    for (let i=0; i<colors.length;i++){
      
      colorOption = colorOption+
+     
      `
     
      <option value = "${colors[i]}">${colors[i]}</option>
      `;
     
    }
- 
-   //getting the quantity
-   const selectedQty = document.querySelector("#quantity");
-   /*
-   let qty = selectedQty.value;
-   let totalP = productSelected.price/100;
-   let calcP = qty * totalP;
-   console.log(calcP);
-   */
+
    //selecting html elements to be shown the colors
  const colorsOptions = document.getElementById("colors");
  //injjecting the the color options to the html element
  colorsOptions.innerHTML =colorOption;
+ 
+   //getting the quantity
+   const selectedQty = document.querySelector("#quantity");
+   
+  
+   
  
 
 
@@ -113,7 +112,7 @@ color : selectedColor.value,
  // save  the details of products in local storage of and converting the detials (json.parse)to JSON format
 
 let saveProductDetailsOnLocalStorage = JSON.parse(localStorage.getItem("product"));
-
+console.log(saveProductDetailsOnLocalStorage);
 // function for the popup message
 const popupMessage = () =>{
   if(window.confirm( `${productSelected.name} color :${selectedColor.value} a bien été ajouté au panier consultez le panier OK ou revenir a le acceuil Cancel `)){
