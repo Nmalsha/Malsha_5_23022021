@@ -1,12 +1,9 @@
-//getting the local storage data
 
-//const { response } = require("express");
-
+//-------------------------DISPLAY PRODUCTS CART---------------
 // save  the details of products in local storage of and converting the detials (json.parse)to JSON format
 
 let saveProductDetailsOnLocalStorage = JSON.parse(localStorage.getItem("product"));
 
-//-------------------------DISPLAY PRODUCTS CART---------------
 // slecting the html elemant to diplay products
 
 const displayElement = document.querySelector("#container_panier");
@@ -55,12 +52,8 @@ for ( a = 0;a<saveProductDetailsOnLocalStorage.length;a++){
   </button></div>
 </div>
 
-
-
-
-         
      `
-     
+  
      ;
      
    }
@@ -70,21 +63,12 @@ for ( a = 0;a<saveProductDetailsOnLocalStorage.length;a++){
         displayElement.innerHTML = listOfProductPanier;
        
      }
-    
-     
-     
-   
-
+ 
 }
-
-
-
-
 //-------------------------FIN DISPLAY PRODUCTS CART---------------
 
 
 // --------------------DELETE SELECTED PRODUCT-------------------------
-
 
 //selecting the product from html element
 
@@ -96,15 +80,14 @@ let deleteProduct = document.querySelectorAll(".delete_item");
     deleteProduct[b].addEventListener("click" , (Event) =>{
       //console.log("test");
      
-      
         Event.preventDefault();
         
         // detecting the id of the clicked product
         
         let idToDelete = b;
+        
        // deleting the element using splice method
-      
-      
+  
        saveProductDetailsOnLocalStorage.splice(idToDelete,1);
 
 
@@ -116,9 +99,6 @@ localStorage.setItem("product",JSON.stringify(saveProductDetailsOnLocalStorage))
      
     });
 
-
-    
-    
  }
  // --------------------FIN DELETE SELECTED PRODUCT--------------------------
 
@@ -159,6 +139,7 @@ let priceOfProducts =PriceOfProduct*qtyOfSelectedProduct;
 prixTotal.push(priceOfProducts);
 
  }  
+
 //------------------calculating the price which are in the array PrixTotal--------------------------
 
 const reducer = (accumulator, currentValue) => accumulator + currentValue;
@@ -195,14 +176,12 @@ const displayTotalQtyHtml = `
 const displayQty = document.querySelector(".panier");
 //const displayQtyIndex = document.querySelector(".panierIndex");
 //console.log(displayQtyIndex);
-console.log(displayQty);
+//console.log(displayQty);
 //console.log(displayTotalQtyHtml);
 //displayQty.innerHTML =displayTotalQtyHtml;
 displayQty.insertAdjacentHTML("beforeend",displayTotalQtyHtml);
 
  //--------------------------FIN DISPLAY TOTAL QTY OF THE ITEMS-------------------------------
-
- 
 
 
 //----------------------DISPLAY FORM --------------------------------------------
@@ -244,9 +223,7 @@ const structureForm = `
     <button type="submit"  id="submitform-btn" aria-label="cliquez ici pour procéder le paiement">Procéder au paiement</button>
  </div>
   </div>
-       
-
-
+ 
 `;
 // inject to the page panier after the last child element
 
@@ -438,14 +415,14 @@ promise1.then(async(response)=>{
    
     const content = await response.json();
     
-   // console.log(content);
+    console.log(content);
   if(response.ok){
 //console.log(response.ok);
 
 //getting the id of the object("detailsToSend") which is already in the server
 
 var savedObjectId = content._id;
-//console.log(savedObjectId);
+console.log(savedObjectId);
 
 //And send it to the local storage
 localStorage.setItem("sevedId",savedObjectId);
@@ -469,14 +446,6 @@ window.location = "confirmation.html";
 alert("Veuillez bien remplir le formulaire");
 
 };
-
-
-
-
-
-
-
-
 
 });
 

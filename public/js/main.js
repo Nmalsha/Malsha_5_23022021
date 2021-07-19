@@ -1,5 +1,4 @@
 
-//console.log(HOST + API.teddies )
 //getting the products
 fetch(HOST + API.teddies)
 .then(function(res) {

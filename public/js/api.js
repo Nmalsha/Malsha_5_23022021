@@ -5,4 +5,5 @@ const API = {
   teddies : "/api/teddies",
  
 }
+
 const teddies =API.teddies; 

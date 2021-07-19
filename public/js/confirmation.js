@@ -29,3 +29,4 @@ function cleairLocalStorage(key){
 cleairLocalStorage("prixTotal");
 cleairLocalStorage("product");
 cleairLocalStorage("sevedId");
+console.log(cleairLocalStorage);

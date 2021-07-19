@@ -6,7 +6,7 @@ const queryString_url_id = window.location.search;
 const clearId = queryString_url_id.slice(4);
 //console.log(clearId);
 
-//displaying product belogns to the id
+//----------------------displaying product belogns to the id----------------------------
 
 fetch(HOST + API.teddies)
 .then(function(res) {
@@ -19,11 +19,8 @@ return res.json();
   // selecting products to display
   
   const productSelected = data.find((element)=>element._id ===clearId);
-  console.log(productSelected);
- 
- 
-
-
+  //console.log(productSelected);
+  
   document.getElementById("container_products").innerHTML = `
   
   <div class="teds teds_product">
@@ -49,7 +46,7 @@ return res.json();
  </select>  
  </div>
  <div class="btn_wrappe">
-  <button id="submit_product" type="submit">Ajouer l'article au panier ${productSelected.price/100}.00€</button>
+  <button id="submit_product" type="submit">Ajouter l'article au panier ${productSelected.price/100}.00€</button>
   </div>
   </div>
  
@@ -58,11 +55,12 @@ return res.json();
 
 
  `
+ //----------------------FIN displaying product belogns to the id----------------------------
  
- 
-   //getting available colors/lenses/varnish
+   //---------------getting available colors/lenses/varnish---------------
 
 const items = Object.keys(productSelected);
+//console.log(items);
 let item = productSelected[items[0]];
 let itemOption =[]
  for (let i = 0; i< item.length; i++){
@@ -74,25 +72,14 @@ itemOption = itemOption+
      `;
  }
 
-/*
-   const colors = productSelected.colors;
-   let colorOption = [];
-   for (let i=0; i<colors.length;i++){
-     
-     colorOption = colorOption+
-     
-     `
-    
-     <option value = "${colors[i]}">${colors[i]}</option>
-     `;
-    
-   }
-*/
+
    //selecting html elements to be shown the colors
  const itemOptions = document.getElementById("colors");
  //injjecting the the color options to the html element
  itemOptions.innerHTML =itemOption;
  
+ //---------------FIN getting available colors/lenses/varnish---------------
+
    //getting the quantity
    const selectedQty = document.querySelector("#quantity");
    
@@ -125,7 +112,7 @@ color : selectedColor.value,
  // save  the details of products in local storage of and converting the detials (json.parse)to JSON format
 
 let saveProductDetailsOnLocalStorage = JSON.parse(localStorage.getItem("product"));
-console.log(saveProductDetailsOnLocalStorage);
+//console.log(saveProductDetailsOnLocalStorage);
 // function for the popup message
 const popupMessage = () =>{
   if(window.confirm( `${productSelected.name} color :${selectedColor.value} a bien été ajouté au panier consultez le panier OK ou revenir a le acceuil Cancel `)){
